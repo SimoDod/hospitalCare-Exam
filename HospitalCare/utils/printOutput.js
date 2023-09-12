@@ -1,10 +1,9 @@
 const printOutput = (output) => {
-  output.forEach(
-    (el) =>
-      `${console.log(el)} ${console.log(
-        el?.last ? el.last : el.change
-      )} \n ${console.log("---------------------------------------")}`
-  );
+  return output.map((el) => {
+    console.log(el);
+
+    return JSON.stringify(el);
+  });
 };
 
 export default printOutput;

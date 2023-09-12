@@ -1,15 +1,9 @@
-import patientsArr from "../mocks/patientsArr.js";
-
-const getPatientsId = () => {
-  const patientsId = [];
-
-  patientsArr.forEach((patient) => {
+const getPatientsId = (patientsArr) =>
+  patientsArr.reduce((patientsId, patient) => {
     if (!patientsId.includes(patient.patientId)) {
-      patientsId.push(patient.patientId);
+      return [...patientsId, patient.patientId];
     }
-  });
-
-  return patientsId;
-};
+    return patientsId;
+  }, []);
 
 export default getPatientsId;

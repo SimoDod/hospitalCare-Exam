@@ -1,9 +1,3 @@
-const convertISOToMs = (isoStr) => {
-  const date = new Date(isoStr);
-
-  const timestamp = date.getTime();
-
-  return timestamp;
-};
+const convertISOToMs = (isoStr) => new Date(isoStr).getTime();
 
 export default convertISOToMs;

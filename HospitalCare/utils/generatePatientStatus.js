@@ -3,33 +3,33 @@ const generatePatientStatus = ({
   healthChanged,
   from,
   to,
+  changeTemperatureC,
   temperatureC,
   changedOn,
   time,
-  status
+  status,
 }) => {
+  const patientStatus = {
+    patientId,
+    healthChanged,
+  };
+
   if (healthChanged) {
-    return {
-      patientId,
-      healthChanged,
-      change: {
-        from,
-        to,
-        temperatureC,
-        changedOn,
-      },
+    patientStatus.change = {
+      from,
+      to,
+      temperatureC: changeTemperatureC,
+      changedOn,
     };
   } else {
-    return {
-      patientId,
-      healthChanged,
-      last: {
-        status: status,
-        temperatureC,
-        time,
-      },
+    patientStatus.last = {
+      status,
+      temperatureC,
+      time,
     };
   }
+
+  return patientStatus;
 };
 
 export default generatePatientStatus;
